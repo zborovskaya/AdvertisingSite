@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <Property name="patternfull">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{4} - %msg%n
+        </Property>
+        <Property name="patternshort">
+            %d{HH:mm:ss.SSS} [%t] %-5level %logger{1} - %msg%n
+        </Property>
+    </Properties>
+    <Appenders>
+        <File name="TxtFile" fileName="logs/text.log" bufferedIO="true">
+            <PatternLayout pattern="${patternfull}" />
+        </File>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patternshort}" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="TxtFile" />
+        </Root>
+    </Loggers>
+</Configuration>
